@@ -1,0 +1,43 @@
+Драйвер LCD 1820ВГ1
+EEPROM  24LC02B-I/SN
+АЦП     AD7705BN
+
+2 P1.0 динамик
+
+4-7 P1.2-5 режим работы
+14  Р3.2   режим работы - герконы
+
+АЦП
+3  P1.1 данные АЦП
+15 P3.3 данные готовы
+16 Р3.4 данные
+17 Р3.5 такты данных
+
+I2C         калибровки EEPROM
+8 Р1.6 SCL                  
+9 P1.7 DATA SDA
+
+LCD
+25 P2.1 DATA
+26 P2.2 CLK
+24 P2.0 CS1
+27 P2.3 CS2
+
+P0
+3-6 - кнопки
+43 P0.0 лазер дальности 2, 20 см
+42 P0.1 шаговый 
+43 P0.2 двигатель
+36 P0.7 вход калибровки
+
+005B  mov   SCON, #0x50 ; 'P' 0b01010000 ; Serial Port Control
+005E  mov   TMOD, #0x20 ; ' ' 0b00100000 ; Timer Mode Control Register
+0061  mov   TCON, #0x40 ; '@' 0b01000000 ; Timer Control Register
+0064  mov   TH1, #0xF3                   ; Timer 1 High Byte
+0067  mov   PCON, #0x80       0b10000000 ; Power Control Register = 0x80 : Serial port Mode = UART
+006A  setb  IP.4                         ; Interrupt Priority Register
+006C  mov   IE, #0x94                    ; Interrupt Enable Register 0
+006F  mov   T2MOD, #2                    ; Timer 2 Mode
+0072  mov   RCAP2L, #0xE0                ; Timer 2 Capture Low Byte
+0075  mov   RCAP2H, #0xFA                ; Timer 2 Capture High Byte
+0078  mov   R0, #0x20 ; ' '
