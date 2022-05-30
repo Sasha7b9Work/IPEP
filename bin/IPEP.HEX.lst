@@ -432,40 +432,40 @@ code:0226 extint1_0:                              ; CODE XREF: extint1↑j
 code:0226                 push    ACC             ; Accumulator
 code:0228                 push    PSW             ; Program Status Word
 code:022A                 push    B               ; B Register
-code:022C                 push    RAM_1
-code:022E                 push    RAM_2
-code:0230                 push    RAM_3
+code:022C                 push    RAM_1           ; R1
+code:022E                 push    RAM_2           ; R2
+code:0230                 push    RAM_3           ; R3
 code:0232                 clr     P2.6            ; Port 2
 code:0234                 nop
 code:0235                 nop
 code:0236                 setb    P2.6            ; Port 2
 code:0238                 mov     A, #0x38 ; '8'
-code:023A                 lcall   code_20B
-code:023D                 lcall   code_21A
+code:023A                 lcall   code_20B          ; Пишем в АЦП 0х38
+code:023D                 lcall   code_21A          ; Читаем байт из АЦП
 code:0240                 mov     R2, A
-code:0241                 mov     RAM_59, A
-code:0243                 lcall   code_21A
+code:0241                 mov     RAM_59, A         ; Помещаем его в RAM_59
+code:0243                 lcall   code_21A          ; Читаем второй байт из АЦП
 code:0246                 mov     R3, A
-code:0247                 mov     RAM_5A, A
-code:0249                 mov     A, R2
-code:024A                 rlc     A
-code:024B                 jnc     code_251
+code:0247                 mov     RAM_5A, A         ; Помещаем его в RAM_5A
+code:0249                 mov     A, R2             ; Берём первый считанный байт
+code:024A                 rlc     A                 ; Умножаем на 2
+code:024B                 jnc     code_251          ; Переход, если не было переполнения
 code:024D                 clr     C
 code:024E                 rrc     A
 code:024F                 sjmp    code_258
 code:0251 ; ---------------------------------------------------------------------------
 code:0251
 code:0251 code_251:                               ; CODE XREF: extint1_0+25↑j
-code:0251                 mov     A, R3
-code:0252                 cpl     A
+code:0251                 mov     A, R3             ; Берём второй считанный бай
+code:0252                 cpl     A                 ; Инвертируем
 code:0253                 mov     R3, A
-code:0254                 mov     RAM_5A, A
-code:0256                 mov     A, R2
-code:0257                 cpl     A
+code:0254                 mov     RAM_5A, A         ; Сохраняем
+code:0256                 mov     A, R2             ; Берём оригинальный считанный первый байт
+code:0257                 cpl     A                 ; Инвертируем
 code:0258
 code:0258 code_258:                               ; CODE XREF: extint1_0+29↑j
 code:0258                 mov     R2, A
-code:0259                 mov     RAM_59, A
+code:0259                 mov     RAM_59, A         ; Сохраняем
 code:025B                 pop     RAM_3
 code:025D                 pop     RAM_2
 code:025F                 pop     RAM_1
@@ -2877,7 +2877,7 @@ code:0E85
 code:0E85
 code:0E85 code_E85:                               ; CODE XREF: code_DBF:code_DC1↑p
 code:0E85                 mov     A, RAM_59
-code:0E87                 jb      ACC7, code_E9E  ; Accumulator
+code:0E87                 jb      ACC7, code_E9E  ; Accumulator     Если старший бит первого байта установлен
 code:0E8A                 mov     RAM_B, RAM_5A
 code:0E8D                 mov     @R1, RAM_5A
 code:0E8F                 dec     R1
@@ -6876,9 +6876,9 @@ RAM:0055
 RAM:0056
 RAM:0057
 RAM:0058
-RAM:0059 .equ RAM_59,0x59                        ; DATA XREF: extint1_0+1B↑w
+RAM:0059 .equ RAM_59,0x59                        ; DATA XREF: extint1_0+1B↑w            1-й байт из АЦП
 RAM:0059                                         ; extint1_0+33↑w ...
-RAM:005A .equ RAM_5A,0x5A                        ; DATA XREF: extint1_0+21↑w
+RAM:005A .equ RAM_5A,0x5A                        ; DATA XREF: extint1_0+21↑w            2-й байт из АЦП
 RAM:005A                                         ; extint1_0+2E↑w ...
 RAM:005B
 RAM:005C
