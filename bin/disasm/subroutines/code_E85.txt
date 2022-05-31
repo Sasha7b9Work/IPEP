@@ -3,18 +3,18 @@
 Вход : R1 - адрес сохранения результата
 
 code:0E85 code_E85:
-code:0E85   mov  A, RAM_59          ; A <- byte1
-code:0E87   jb   ACC7, code_E9E     ; Если старший бит первого байта установлен
-code:0E8A   mov  RAM_B, RAM_5A      ; \ RAM_B <- byte2 ; [R1] <- byte2
+code:0E85   mov  A, RAM_59          ; A <- adcHI
+code:0E87   jb   ACC7, code_E9E     ; Если adc отрицательное
+code:0E8A   mov  RAM_B, RAM_5A      ; \ RAM_B <- adcLOW ; [R1] <- adcLOW
 code:0E8D   mov  @R1, RAM_5A        ; /
 code:0E8F   dec  R1                 ; \
-code:0E90   mov  RAM_A, RAM_59      ; | RAM_A <- byte1 ; [R1 - 1] <- byte1
+code:0E90   mov  RAM_A, RAM_59      ; | RAM_A <- adcHE ; [R1 - 1] <- adcHI
 code:0E93   mov  @R1, RAM_59        ; /
 code:0E95   dec  R1                 ; \
 code:0E96   clr  A                  ; | RAM_9 <- 0 ; [R1 - 2] <- 0
 code:0E97   mov  RAM_9, A           ; |
 code:0E99   mov  @R1, A             ; /
-code:0E9A   dec  R1                 ; \ 
+code:0E9A   dec  R1                 ; \ RAM_8 <- 0
 code:0E9B   mov  RAM_8, A           ; /
 code:0E9D   ret
 code:0E9E
@@ -22,8 +22,8 @@ code:0E9E code_E9E:
 code:0E9E   clr  C              ;
 code:0E9F   mov  A, RAM_5A      ; \
 code:0EA1   cpl  A              ; |
-code:0EA2   add  A, #1          ; |
-code:0EA4   mov  RAM_B, A       ; |
+code:0EA2   add  A, #1          ; | RAM_B <- !adcLOW + 1 ; [R1] <- !adcLOW + 1
+code:0EA4   mov  RAM_B, A       ; | 
 code:0EA6   mov  @R1, A         ; /
 code:0EA7   dec  R1             ; \
 code:0EA8   mov  A, RAM_59      ; |
@@ -34,10 +34,10 @@ code:0EAF   mov  RAM_A, A       ; |
 code:0EB1   mov  @R1, A         ; /
 code:0EB2   dec  R1             ; \
 code:0EB3   mov  A, #0xFF       ; |
-code:0EB5   mov  RAM_9, A       ; |
+code:0EB5   mov  RAM_9, A       ; | RAM_9 <- 0xFF; [R1 - 2] <- 0xFF
 code:0EB7   mov  @R1, A         ; /
 code:0EB8   dec  R1             ; \
-code:0EB9   mov  RAM_8, A       ; |
+code:0EB9   mov  RAM_8, A       ; | RAM_8 <- 0xFF ; [R1 - 3] <- 0xFF
 code:0EBB   mov  @R1, A         ; /
 code:0EBC   ret
 code:0EBC ; End of function code_E85
