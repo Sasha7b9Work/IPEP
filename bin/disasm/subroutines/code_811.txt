@@ -1,4 +1,9 @@
-Вызывается с параметром R0:
+Сложение 32-битных чисел.
+Вход : в R0 - адрес младшего байта прибавляемого. Остальные байты располагаются по адресам R0-1,R0-2,R0-3.
+       R5,R4,R3,R2 - к этому числу прибавляем. Байты - от младшего к старшему
+Выход : в R5-R2 - сумма
+
+Вызывается из:
     08A8 : #0x87
     08AD : #0x8B
     08B2 : #0x8F
@@ -8,24 +13,24 @@
     0924 : #0xE3
     0929 : #0xE7
     092E : #0xEB
-    0DD1 : #0x47
+    
 
 code:0811 code_811:
 code:0811                 clr     C
-code:0812                 mov     A, R5
-code:0813                 add     A, @R0
-code:0814                 mov     R5, A
-code:0815                 dec     R0
-code:0816                 mov     A, R4
-code:0817                 addc    A, @R0
-code:0818                 mov     R4, A
-code:0819                 dec     R0
-code:081A                 mov     A, R3
-code:081B                 addc    A, @R0
-code:081C                 mov     R3, A
-code:081D                 dec     R0
-code:081E                 mov     A, R2
-code:081F                 addc    A, @R0
-code:0820                 mov     R2, A
+code:0812                 mov     A, R5     ; \  
+code:0813                 add     A, @R0    ; | R5 = R5 + [47]
+code:0814                 mov     R5, A     ; / 
+code:0815                 dec     R0        ; \
+code:0816                 mov     A, R4     ; | R4 = R4 + [46] + C
+code:0817                 addc    A, @R0    ; |
+code:0818                 mov     R4, A     ; /
+code:0819                 dec     R0        ; \
+code:081A                 mov     A, R3     ; | R3 = R3 + [45] + C
+code:081B                 addc    A, @R0    ; |
+code:081C                 mov     R3, A     ; /
+code:081D                 dec     R0        ; \
+code:081E                 mov     A, R2     ; | R2 = R2 + [44] + C
+code:081F                 addc    A, @R0    ; |
+code:0820                 mov     R2, A     ; /
 code:0821                 ret
 code:0821 ; End of function code_811

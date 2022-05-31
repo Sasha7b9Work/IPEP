@@ -1804,7 +1804,7 @@ code:0868                 mov     DPTR, #0x55 ; 'U'
 code:086B                 lcall   code_66D
 code:086E                 mov     DPTR, #0xEEA
 code:0871                 lcall   code_647
-code:0874                 lcall   code_E37
+code:0874                 lcall      code_E37
 code:0877                 jnc     code_830
 code:0879                 jb      RAM_2F.0, code_8F3
 code:087C
