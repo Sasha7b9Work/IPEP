@@ -1,0 +1,12 @@
+code:021A code_21A:                               ; CODE XREF: extint1_0+17↓p
+code:021A                                         ; extint1_0+1D↓p ...
+code:021A                 mov     R3, #8
+code:021C
+code:021C code_21C:                               ; CODE XREF: code_21A+9↓j
+code:021C                 clr     P3.5            ; Port 3
+code:021E                 mov     C, P3.4         ; Port 3
+code:0220                 rlc     A
+code:0221                 setb    P3.5            ; Port 3
+code:0223                 djnz    R3, code_21C
+code:0225                 ret
+code:0225 ; End of function code_21A

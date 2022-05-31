@@ -1,0 +1,40 @@
+code:0E85 code_E85:                               ; CODE XREF: code_DBF:code_DC1↑p
+code:0E85                 mov     A, RAM_59
+code:0E87                 jb      ACC7, code_E9E  ; Accumulator     Если старший бит первого байта установлен
+code:0E8A                 mov     RAM_B, RAM_5A
+code:0E8D                 mov     @R1, RAM_5A
+code:0E8F                 dec     R1
+code:0E90                 mov     RAM_A, RAM_59
+code:0E93                 mov     @R1, RAM_59
+code:0E95                 dec     R1
+code:0E96                 clr     A
+code:0E97                 mov     RAM_9, A
+code:0E99                 mov     @R1, A
+code:0E9A                 dec     R1
+code:0E9B                 mov     RAM_8, A
+code:0E9D                 ret
+code:0E9E ; ---------------------------------------------------------------------------
+code:0E9E
+code:0E9E code_E9E:                               ; CODE XREF: code_E85+2↑j
+code:0E9E                 clr     C
+code:0E9F                 mov     A, RAM_5A
+code:0EA1                 cpl     A
+code:0EA2                 add     A, #1
+code:0EA4                 mov     RAM_B, A
+code:0EA6                 mov     @R1, A
+code:0EA7                 dec     R1
+code:0EA8                 mov     A, RAM_59
+code:0EAA                 anl     A, #0x7F
+code:0EAC                 cpl     A
+code:0EAD                 addc    A, #0
+code:0EAF                 mov     RAM_A, A
+code:0EB1                 mov     @R1, A
+code:0EB2                 dec     R1
+code:0EB3                 mov     A, #0xFF
+code:0EB5                 mov     RAM_9, A
+code:0EB7                 mov     @R1, A
+code:0EB8                 dec     R1
+code:0EB9                 mov     RAM_8, A
+code:0EBB                 mov     @R1, A
+code:0EBC                 ret
+code:0EBC ; End of function code_E85
