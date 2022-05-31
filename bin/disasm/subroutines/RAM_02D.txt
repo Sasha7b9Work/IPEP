@@ -1,0 +1,61 @@
+RAM:002B .equ RAM_2B,0x2B                        ; DATA XREF: extint0_0+421↑r
+RAM:002B                                         ; extint0_0+46B↑r ...
+RAM:002C
+RAM:002D
+RAM:002E
+RAM:002F .equ RAM_2F,0x2F                        ; DATA XREF: code_2FE+3D↑r
+RAM:002F                                         ; code_2FE+6E↑r ...
+RAM:0030
+RAM:0031
+RAM:0032
+RAM:0033 .equ RAM_33,0x33                        ; DATA XREF: code_100D+23↑r
+RAM:0033                                         ; code_100D+27↑w ...
+RAM:0034
+RAM:0035 .equ RAM_35,0x35                        ; DATA XREF: code_2FE+83↑w
+RAM:0035                                         ; extint0_0+12A8↑w
+RAM:0036 .equ RAM_36,0x36                        ; DATA XREF: code_2FE:code_359↑r
+RAM:0036                                         ; code_2FE+5F↑w ...
+RAM:0037 .equ RAM_37,0x37                        ; DATA XREF: extint0_0+3B6↑w
+RAM:0037                                         ; extint0_0+3CB↑w ...
+RAM:0038 .equ RAM_38,0x38                        ; DATA XREF: extint0_0+191↑r
+RAM:0038                                         ; extint0_0+197↑w ...
+RAM:0039 .equ RAM_39,0x39                        ; DATA XREF: code_2FE:code_35F↑r
+RAM:0039                                         ; code_2FE+65↑w ...
+RAM:003A .equ RAM_3A,0x3A                        ; DATA XREF: extint0_0+3F9↑w
+RAM:003A                                         ; extint0_0:code_8E7↑r ...
+RAM:003B
+RAM:003C
+RAM:003D
+RAM:003E
+RAM:003F
+RAM:0040
+RAM:0041
+RAM:0042
+RAM:0043
+RAM:0044 .equ RAM_44,0x44                        ; DATA XREF: code_DBF+38↑w
+RAM:0045 .equ RAM_45,0x45                        ; DATA XREF: code_DBF+3A↑w
+RAM:0045                                         ; code:15B7↑r
+RAM:0046 .equ RAM_46,0x46                        ; DATA XREF: code_DBF+3C↑w
+RAM:0047 .equ RAM_47,0x47                        ; DATA XREF: code_DBF+3E↑w
+RAM:0048
+RAM:0049
+RAM:004A
+RAM:004B .equ RAM_4B,0x4B                        ; DATA XREF: code:15DF↑w
+RAM:004C
+RAM:004D
+RAM:004E
+RAM:004F
+RAM:0050 .equ RAM_50,0x50                        ; DATA XREF: code_D29+A↑w
+RAM:0050                                         ; code:15DD↑r
+RAM:0051
+RAM:0052
+RAM:0053
+RAM:0054
+RAM:0055
+RAM:0056
+RAM:0057
+RAM:0058
+RAM:0059 .equ RAM_59,0x59                        ; DATA XREF: extint1_0+1B↑w            1-й байт из АЦП
+RAM:0059                                         ; extint1_0+33↑w ...
+RAM:005A .equ RAM_5A,0x5A                        ; DATA XREF: extint1_0+21↑w            2-й байт из АЦП
+RAM:005A                                         ; extint1_0+2E↑w ...
