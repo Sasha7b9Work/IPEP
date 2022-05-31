@@ -79,10 +79,10 @@ RAM:004D
 RAM:004E
 RAM:004F
 RAM:0050 .equ RAM_50,0x50
-RAM:0051
-RAM:0052
-RAM:0053
-RAM:0054
+RAM:0051                    ; \
+RAM:0052                    ; | add_adc 
+RAM:0053                    ; |
+RAM:0054                    ; /
 RAM:0055
 RAM:0056
 RAM:0057

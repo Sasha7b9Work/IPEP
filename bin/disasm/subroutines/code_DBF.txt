@@ -1,25 +1,25 @@
 code:0DBF code_DBF:
 code:0DBF   mov     R1, #0x54 ; 'T'
 code:0DC1 code_DC1:
-code:0DC1   lcall   code_E85
+code:0DC1   lcall   code_E85    ; преобразуем в дополнительный код и сохраняем по 0x54
 code:0DC4   nop
 code:0DC5   nop
 code:0DC6   nop
-code:0DC7   mov     R5, RAM_B     ; \ R5 = add_adc_0
-code:0DC9   mov     R4, RAM_A     ; | R4 = add_adc_1
-code:0DCB   mov     R3, RAM_9     ; | R3 = add_adc_2
-code:0DCD   mov     R2, RAM_8     ; | R2 = add_adc_3
-code:0DCF   mov     R0, #0x47     ; |
-code:0DD1   lcall   code_811      ; /
+code:0DC7   mov     R5, RAM_B       ; \ R5 = add_adc_0
+code:0DC9   mov     R4, RAM_A       ; | R4 = add_adc_1
+code:0DCB   mov     R3, RAM_9       ; | R3 = add_adc_2
+code:0DCD   mov     R2, RAM_8       ; | R2 = add_adc_3
+code:0DCF   mov     R0, #0x47       ; |
+code:0DD1   lcall   code_811        ; / [R2-R5] <- [R2-R5] + [R0-R0-1]
 code:0DD4   nop
 code:0DD5   nop
 code:0DD6   nop
-code:0DD7   mov     R0, #0x44 ; 'D'
-code:0DD9   lcall   code_E04
+code:0DD7   mov     R0, #0x44
+code:0DD9   lcall   code_E04        ; [R0-R0+3] = <R5-R2>
 code:0DDC   nop
 code:0DDD   nop
 code:0DDE   nop
-code:0DDF   mov     R0, #0x50 ; 'P'
+code:0DDF   mov     R0, #0x50
 code:0DE1   inc     @R0
 code:0DE2   cjne    @R0, #4, code_DFF
 code:0DE5   mov     @R0, #0

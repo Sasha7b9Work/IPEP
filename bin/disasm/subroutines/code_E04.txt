@@ -1,13 +1,19 @@
+Сохраняет по адресу [R0] число из <R2-R5> с 
+
 code:0E04 code_E04:
-code:0E04   mov     A, R2
-code:0E05   mov     @R0, A
-code:0E06   inc     R0
-code:0E07   mov     A, R3
-code:0E08   mov     @R0, A
-code:0E09   inc     R0
-code:0E0A   mov     A, R4
-code:0E0B   mov     @R0, A
-code:0E0C   inc     R0
-code:0E0D   mov     A, R5
-code:0E0E   mov     @R0, A
+code:0E04   mov     A, R2   ; \ 
+code:0E05   mov     @R0, A  ; / [R0] <- R2
+
+code:0E06   inc     R0      ; \
+code:0E07   mov     A, R3   ; | [R0 + 1] <- R3
+code:0E08   mov     @R0, A  ; /
+
+code:0E09   inc     R0      ; \
+code:0E0A   mov     A, R4   ; | [R0 + 2] <- R4
+code:0E0B   mov     @R0, A  ; /
+
+code:0E0C   inc     R0      ; \
+code:0E0D   mov     A, R5   ; | [R0 + 3] <- R5
+code:0E0E   mov     @R0, A  ; /
+
 code:0E0F   ret
