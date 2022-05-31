@@ -13,7 +13,7 @@
     0924 : #0xE3
     0929 : #0xE7
     092E : #0xEB
-    
+    0DD1 : #0x47    
 
 code:0811 code_811:
 code:0811                 clr     C
