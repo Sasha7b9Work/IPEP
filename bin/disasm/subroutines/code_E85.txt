@@ -1,3 +1,5 @@
+Преобразование в дополнительный код adcHI,adcLOW и сохранение в [R1] и [RAM_8,RAM_9,RAM_A,RAM_B]
+
 Функция каким-то образом записывает считанное значение АЦП в RAM_8,RAM_9,RAM_A,RAM_B
     и по четырём байтам из @R1 по убыванию адресов
 Вход : R1 - адрес сохранения результата
@@ -25,13 +27,13 @@ code:0EA1   cpl  A              ; |
 code:0EA2   add  A, #1          ; | RAM_B <- !adcLOW + 1 ; [R1] <- !adcLOW + 1
 code:0EA4   mov  RAM_B, A       ; | 
 code:0EA6   mov  @R1, A         ; /
-code:0EA7   dec  R1             ; \
-code:0EA8   mov  A, RAM_59      ; |
-code:0EAA   anl  A, #0x7F       ; |
-code:0EAC   cpl  A              ; |
-code:0EAD   addc A, #0          ; |
-code:0EAF   mov  RAM_A, A       ; |
-code:0EB1   mov  @R1, A         ; /
+code:0EA7   dec  R1             ; \ R1 = R1 - 1
+code:0EA8   mov  A, RAM_59      ; | A <- adcHI
+code:0EAA   anl  A, #0x7F       ; | adcHI.7 = 0
+code:0EAC   cpl  A              ; | 
+code:0EAD   addc A, #0          ; | adcHI = ~adcHI + C
+code:0EAF   mov  RAM_A, A       ; | RAM_A <- ~adcHI + C
+code:0EB1   mov  @R1, A         ; / [R1 - 1] <- ~adcHI + C
 code:0EB2   dec  R1             ; \
 code:0EB3   mov  A, #0xFF       ; |
 code:0EB5   mov  RAM_9, A       ; | RAM_9 <- 0xFF; [R1 - 2] <- 0xFF

@@ -1,15 +1,15 @@
-RAM:0000 .equ RAM_0,0
-RAM:0001 .equ RAM_1,1
-RAM:0002 .equ RAM_2,2
-RAM:0003 .equ RAM_3,3
-RAM:0004 .equ RAM_4,4
-RAM:0005 .equ RAM_5,5
-RAM:0006 .equ RAM_6,6
-RAM:0007 .equ RAM_7,7
-RAM:0008 .equ RAM_8,8
-RAM:0009 .equ RAM_9,9
-RAM:000A .equ RAM_A,0xA
-RAM:000B .equ RAM_B,0xB
+RAM:0000 .equ RAM_0,0   ; R0
+RAM:0001 .equ RAM_1,1   ; R1
+RAM:0002 .equ RAM_2,2   ; R2
+RAM:0003 .equ RAM_3,3   ; R3
+RAM:0004 .equ RAM_4,4   ; R4
+RAM:0005 .equ RAM_5,5   ; R5
+RAM:0006 .equ RAM_6,6   ; R6
+RAM:0007 .equ RAM_7,7   ; R7
+RAM:0008 .equ RAM_8,8   ; \ add_adc_3
+RAM:0009 .equ RAM_9,9   ; | add_adc_2 adc в дополнительном коде,
+RAM:000A .equ RAM_A,0xA ; | add_adc_1 расширенное до 32-х бит
+RAM:000B .equ RAM_B,0xB ; / add_adc_0 
 RAM:000C .equ RAM_C,0xC
 RAM:000D .equ RAM_D,0xD
 RAM:000E .equ RAM_E,0xE
