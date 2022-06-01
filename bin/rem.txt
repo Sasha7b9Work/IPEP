@@ -1,4 +1,5 @@
 ROM:
+0053 : extint0_0_func_main    - main()
 021A : func_ReadADC           - чтение байта АЦП
 0226 : extint1_0_DataReadyADC - прерывание по сигналу готовности ADC
 0811 : func_Addition2x32      - сложение 32-битных чисел
@@ -10,3 +11,16 @@ ROM:
 RAM:
 0059 : adcHI - старший байт ADC
 005A : adcLOW - младший байт ADC
+
+
+Обращения по портам.
+LCD
+CS1   P2.0 : 03A4
+             03C0
+CS2   P2.3 : 009E
+             03C2
+             03C4
+             03CB
+DATA  P2.1 : 03AE
+CLK   P2.2 : 03B1
+             03B7
