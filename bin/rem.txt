@@ -1,5 +1,6 @@
 ROM:
-021A : func_ReadADC - чтение байта АЦП
+021A : func_ReadADC           - чтение байта АЦП
+0226 : extint1_0_DataReadyADC - прерывание по сигналу готовности ADC
 
 RAM:
 0059 : adcHI - старший байт ADC
