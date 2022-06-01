@@ -1,2 +1,6 @@
+ROM:
+021A : func_ReadADC - чтение байта АЦП
+
 RAM:
-adcHI - 
+0059 : adcHI - старший байт ADC
+005A : adcLOW - младший байт ADC
