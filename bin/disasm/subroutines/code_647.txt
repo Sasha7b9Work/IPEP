@@ -1,0 +1,26 @@
+code:0647 code_647:
+code:0647   mov     A, DP0H         ; Data Pointer High Byte
+code:0649   jz      code_65F
+code:064B   clr     A
+code:064C   movc    A, @A+DPTR
+code:064D   mov     RAM_8, A
+code:064F   mov     A, #1
+code:0651   movc    A, @A+DPTR
+code:0652   mov     RAM_9, A
+code:0654   mov     A, #2
+code:0656   movc    A, @A+DPTR
+code:0657   mov     RAM_A, A
+code:0659   mov     A, #3
+code:065B   movc    A, @A+DPTR
+code:065C   mov     RAM_B, A
+code:065E   ret
+code:065F code_65F:
+code:065F   mov     R0, DP0L        ; Data Pointer Low Byte
+code:0661   mov     RAM_8, @R0
+code:0663   inc     R0
+code:0664   mov     RAM_9, @R0
+code:0666   inc     R0
+code:0667   mov     RAM_A, @R0
+code:0669   inc     R0
+code:066A   mov     RAM_B, @R0
+code:066C   ret

@@ -10,12 +10,12 @@ code:0DC9   mov     R4, RAM_A       ; | R4 = add_adc_1
 code:0DCB   mov     R3, RAM_9       ; | R3 = add_adc_2
 code:0DCD   mov     R2, RAM_8       ; | R2 = add_adc_3
 code:0DCF   mov     R0, #0x47       ; |
-code:0DD1   lcall   code_811        ; / [R2-R5] <- [R2-R5] + [R0-R0-1]
+code:0DD1   lcall   code_811        ; / [R5-R2] <- [R5-R2] + [0x47-0x44]
 code:0DD4   nop
 code:0DD5   nop
 code:0DD6   nop
 code:0DD7   mov     R0, #0x44
-code:0DD9   lcall   code_E04        ; [R0-R0+3] = <R5-R2>
+code:0DD9   lcall   code_E04        ; [0x44-0x47] = <R2-R5>
 code:0DDC   nop
 code:0DDD   nop
 code:0DDE   nop
