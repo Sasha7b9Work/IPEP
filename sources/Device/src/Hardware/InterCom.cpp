@@ -26,10 +26,4 @@ void InterCom::Send(float value)
     sprintf(message, "%f", value);
 
     CDC::Transmit(message, (int)std::strlen(message) + 1);
-
-#ifdef GUI
-
-    ClientTCP::Transmit(data.Data(), 12);
-
-#endif
 }
