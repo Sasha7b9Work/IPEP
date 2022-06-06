@@ -63,7 +63,6 @@ file(GLOB HARDWARE_HAL          ../../Device/src/Hardware/HAL/*.*
 file(GLOB HARDWARE_I2C          ../../Device/src/Hardware/I2C/*.*)
 file(GLOB HARDWARE_LAN                           Hardware/LAN/*.*)
 file(GLOB HARDWARE_LAN_LIBNET                    Hardware/LAN/libnet/*.*)
-file(GLOB SETTINGS              ../../Device/src/Settings/*.*)
 file(GLOB UTILS                 ../../Device/src/Utils/*.*)
 file(GLOB UTILS_TEXT            ../../Device/src/Utils/Text/*.*)
 
@@ -78,7 +77,6 @@ source_group(Hardware/HAL        FILES ${HARDWARE_HAL})
 source_group(Hardware/I2C        FILES ${HARDWARE_I2C})
 source_group(Hardware/LAN        FILES ${HARDWARE_LAN})
 source_group(Hardware/LAN/libnet FILES ${HARDWARE_LAN_LIBNET})
-source_group(Settings            FILES ${SETTINGS})
 source_group(Utils               FILES ${UTILS})
 source_group(Utils/Text          FILES ${UTILS_TEXT})
 
@@ -98,10 +96,9 @@ add_executable( ${PROJECT_NAME}
                 ${HARDWARE_I2C}
                 ${HARDWARE_LAN}
                 ${HARDWARE_LAN_LIBNET}
-                ${SETTINGS}
                 ${UTILS}
                 ${UTILS_TEXT}
-                )
+)
 
 target_link_libraries(${PROJECT_NAME} wxbase31ud wxmsw31ud_core Ws2_32)
 
