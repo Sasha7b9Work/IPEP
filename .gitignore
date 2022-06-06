@@ -1,4 +1,8 @@
 *.out
+*.*.id0
+*.*.id1
+*.*.nam
+*.*.til
 
 sources/generated/
 sources/Device/Listings/

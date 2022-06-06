@@ -19,7 +19,16 @@ void Device::Init()
 
 void Device::Update()
 {
+    static TimeMeterMS meter;
+
     Keyboard::Update();
 
     Display::Update();
+
+    if (meter.ElapsedTime() > 1000)
+    {
+        meter.Reset();
+
+        InterCom::Send(1.0f);
+    }
 }
