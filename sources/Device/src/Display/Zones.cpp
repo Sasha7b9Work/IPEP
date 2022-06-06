@@ -1,7 +1,6 @@
 #include "defines.h"
 #include "Display/Zones.h"
 #include "Display/Display.h"
-#include "Modules/ST7735/ST7735.h"
 
 
 void Zone::Clear()
@@ -12,7 +11,6 @@ void Zone::Clear()
 
 void Zone::Send()
 {
-    ST7735::WriteBuffer(x, y, width, height);
 }
 
 

@@ -2,7 +2,6 @@
 #include "defines.h"
 #include "Hardware/Keyboard.h"
 #include "Hardware/Timer.h"
-#include "Menu/Menu.h"
 #include <stm32f1xx_hal.h>
 
 
@@ -44,7 +43,6 @@ void Keyboard::Update()
     {
         if (meter.ElapsedTime() > TIME_LONG_PRESS && !taboo_long)
         {
-            Menu::LongPress();
             taboo_long = true;
         }
         else
@@ -55,7 +53,6 @@ void Keyboard::Update()
                 meter.Reset();
                 if (!taboo_long)
                 {
-                    Menu::ShortPress();
                 }
                 taboo_long = false;
             }

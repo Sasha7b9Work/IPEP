@@ -3,13 +3,10 @@
 #include "Display/Display.h"
 #include "Hardware/Timer.h"
 #include "Display/Colors.h"
-#include "Modules/ST7735/ST7735.h"
 #include "Display/Font/Font.h"
 #include "Utils/Text/String.h"
 #include "Utils/Text/Text.h"
 #include "Display/Zones.h"
-#include "Menu/Menu.h"
-#include "Settings/Settings.h"
 #include <cstdlib>
 
 
@@ -28,34 +25,6 @@ namespace Display
     };
 
     static void DrawZones();
-
-    struct Measure
-    {
-        String<> old;
-        String<> current;
-
-        TypeMeasure::E type;
-        float value;                // Последнее установленное значение
-        int position;               // Текущая отрисовываемая позиция
-        uint time;                  // Время последнего изменения текущей отрисовываемой позиции
-
-        Measure(TypeMeasure::E t) : type(t), value(0.0f), position(0), time(0) {}
-
-        void Draw(const int x, const int y, int size = 1);
-
-        String<> Name();
-
-        String<> Units();
-    };
-
-    static Measure measures[TypeMeasure::Count] =
-    {
-        Measure(TypeMeasure::Pressure),
-        Measure(TypeMeasure::Illumination),
-        Measure(TypeMeasure::Velocity),
-        Measure(TypeMeasure::Temperature),
-        Measure(TypeMeasure::Humidity)
-    };
 
     static void DrawMeasures();
 
@@ -169,79 +138,6 @@ void Rectangle::Draw(int x, int y, Color::E color)
 }
 
 
-void Display::SetMeasure(TypeMeasure::E type, float value)
-{
-    Measure &measure = measures[type];
-
-    if (value == measure.value)
-    {
-        return;
-    };
-
-    measure.old.SetFormat(measure.current.c_str());
-
-    measure.position = 0;
-    measure.time = TIME_MS;
-    measure.value = value;
-
-    measure.current.SetFormat("%f", value);
-    measure.current[6] = '\0';
-}
-
-
-void Display::Measure::Draw(const int x0, const int y0, int size)
-{
-    Rectangle(30, 7).Fill(x0, y0 + 1, Color::BLACK);
-
-    if (position >= current.Size())
-    {
-        current.DrawBig(x0, y0, size, Color::GREEN);
-    }
-    else
-    {
-        int x = x0;
-
-        for (int i = 0; i < position; i++)
-        {
-            x = Char(current[i]).Draw(x, y0, size, Color::GREEN) + size;
-        }
-
-        int x_rect = x;
-
-        for (int i = position; i < old.Size(); i++)
-        {
-            x = Char(old[i]).Draw(x, y0, size, Color::GREEN) + size;
-        }
-
-        if (TIME_MS > time + 25)
-        {
-            position++;
-            time = TIME_MS;
-        }
-
-        Rectangle(5 * size, 7 * size).Fill(x_rect, y0 + 1, Color::WHITE);
-    }
-
-    ST7735::WriteBuffer(x0, y0 + 1, 30, 7);
-}
-
-
-void Display::DrawZones()
-{
-    for (int i = 0; true; i++)
-    {
-        Zone *zone = zones[i];
-
-        if (zone == nullptr)
-        {
-            break;
-        }
-
-        zone->Draw();
-    }
-}
-
-
 void Display::BeginScene(Color::E color)
 {
     Buffer::Fill(color);
@@ -250,124 +146,11 @@ void Display::BeginScene(Color::E color)
 
 void Display::EndScene()
 {
-    ST7735::WriteBuffer(0, 0, WIDTH, HEIGHT);
 }
 
 
 void Display::Update()
 {
-    TimeMeterMS meter_fps;
-
-    if (Menu::Opened())
-    {
-        Menu::Draw();
-
-        need_redraw = true;
-    }
-    else
-    {
-        if (gset.display.typeDisplaydInfo.IsAllMeasures())
-        {
-            if (need_redraw)
-            {
-                BeginScene(Color::BLACK);
-            }
-
-            DrawMeasures();
-
-            if (need_redraw)
-            {
-                EndScene();
-
-                need_redraw = false;
-            }
-
-            DrawZones();
-        }
-        else
-        {
-            DrawBigMeasure();
-        }
-
-        zoneFPS.string.SetFormat("%02d ms", meter_fps.ElapsedTime());
-    }
 }
 
 
-void Display::DrawMeasures()
-{
-    const int x0 = 10;
-    const int dX = 125;
-    const int y0 = 15;
-    const int dY = 22;
-
-    for (int i = 0; i < TypeMeasure::Count; i++)
-    {
-        if (gset.display.show_measure[i])
-        {
-            int y = y0 + i * dY;
-
-            if (need_redraw)
-            {
-                String<>("%s :", measures[i].Name().c_str()).Draw(x0, y, Color::_1);
-                measures[i].Units().Draw(x0 + dX, y);
-            }
-
-            measures[i].Draw(100, y);
-        }
-    }
-}
-
-
-void Display::DrawBigMeasure()
-{
-    BeginScene(Color::BLACK);
-
-    static const int x[TypeMeasure::Count] =
-    {
-        30,
-        10,
-        35,
-        12,
-        28
-    };
-
-    Measure &measure = measures[gset.display.typeDisplaydInfo.value];
-
-    measure.Name().DrawBig(x[measure.type], 15, 2, Color::_1);
-
-    measures[measure.type].Draw(27, 50, 4);
-
-    measure.Units().DrawBig(68, 95, 2, Color::_1);
-
-    EndScene();
-}
-
-
-String<> Display::Measure::Name()
-{
-    static const pchar names[TypeMeasure::Count] =
-    {
-        "ДАВЛЕНИЕ",
-        "ОСВЕЩЕННОСТЬ",
-        "СКОРОСТЬ",
-        "ТЕМПЕРАТУРА",
-        "ВЛАЖНОСТЬ"
-    };
-
-    return String<>(names[type]);
-}
-
-String<> Display::Measure::Units()
-{
-    static const pchar units[TypeMeasure::Count] =
-    {
-        "МПа",
-        "лк",
-        "м/с",
-        "ЁС",
-        "%%"
-    };
-
-    return String<>(units[type]);
-}

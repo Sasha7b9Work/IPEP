@@ -4,28 +4,12 @@
 #include "Utils/Text/String.h"
 
 
-struct TypeMeasure
-{
-    enum E
-    {
-        Pressure,           // Давление
-        Illumination,       // Освещённость
-        Velocity,           // Скорость
-        Temperature,        // Температура
-        Humidity,           // Влажность
-        Count
-    };
-};
-
-
 namespace Display
 {
     static const int WIDTH = 160;
     static const int HEIGHT = 128;
 
     extern bool need_redraw;
-
-    void SetMeasure(TypeMeasure::E, float measure);
 
     void Update();
 

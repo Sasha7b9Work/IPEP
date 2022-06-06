@@ -3,7 +3,6 @@
 #include "Log.h"
 #include "Utils/Text/Text.h"
 #include "Display/Font/Font.h"
-#include "Modules/ST7735/ST7735.h"
 #include "Utils/Math.h"
 #include "Display/Display.h"
 #include <cstdarg>
