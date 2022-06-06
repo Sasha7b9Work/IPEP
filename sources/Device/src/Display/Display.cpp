@@ -18,19 +18,6 @@ namespace Display
 
     static ZoneFPS zoneFPS;
 
-    static Zone *zones[] =
-    {
-        &zoneFPS,
-        nullptr
-    };
-
-    static void DrawZones();
-
-    static void DrawMeasures();
-
-    // Вывести одно измерение на весь экран
-    static void DrawBigMeasure();
-
     namespace Buffer
     {
         static uint8 buffer[WIDTH * HEIGHT / 2];       // Четырёхбитный цвет
