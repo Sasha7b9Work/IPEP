@@ -1,10 +1,10 @@
 // 2022/6/7 9:07:02 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Modules/AD7705BN.h"
+#include "Modules/ADC.h"
 #include <stm32f1xx_hal.h>
 
 
-namespace AD7705BN
+namespace ADC
 {
 #define PORT_READY GPIOA
 #define PIN_READY GPIO_PIN_0
@@ -28,7 +28,7 @@ namespace AD7705BN
 }
 
 
-void AD7705BN::Init()
+void ADC::Init()
 {
     GPIO_InitTypeDef is =
     {
@@ -58,13 +58,13 @@ void AD7705BN::Init()
 }
 
 
-void AD7705BN::Write(uint8)
+void ADC::Write(uint8)
 {
 
 }
 
 
-uint8 AD7705BN::Read()
+uint8 ADC::Read()
 {
     return 0;
 }

@@ -5,14 +5,14 @@
 #include "Hardware/CDC/CDC.h"
 #include "Hardware/Timer.h"
 #include "Hardware/InterCom.h"
-#include "Modules/AD7705BN.h"
+#include "Modules/ADC.h"
 
 
 void Device::Init()
 {
     HAL::Init();
 
-    AD7705BN::Init();
+    ADC::Init();
 }
 
 

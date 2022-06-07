@@ -2,7 +2,7 @@
 #pragma once
 
 
-namespace AD7705BN
+namespace ADC
 {
     void Init();
 

@@ -974,7 +974,7 @@
 
   <Group>
     <GroupName>Modules</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -985,8 +985,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\Modules\AD7705BN.cpp</PathWithFileName>
-      <FilenameWithoutPath>AD7705BN.cpp</FilenameWithoutPath>
+      <PathWithFileName>.\src\Modules\ADC.cpp</PathWithFileName>
+      <FilenameWithoutPath>ADC.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -997,8 +997,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\src\Modules\AD7705BN.h</PathWithFileName>
-      <FilenameWithoutPath>AD7705BN.h</FilenameWithoutPath>
+      <PathWithFileName>.\src\Modules\ADC.h</PathWithFileName>
+      <FilenameWithoutPath>ADC.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

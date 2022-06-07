@@ -599,14 +599,14 @@
           <GroupName>Modules</GroupName>
           <Files>
             <File>
-              <FileName>AD7705BN.cpp</FileName>
+              <FileName>ADC.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\Modules\AD7705BN.cpp</FilePath>
+              <FilePath>.\src\Modules\ADC.cpp</FilePath>
             </File>
             <File>
-              <FileName>AD7705BN.h</FileName>
+              <FileName>ADC.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\Modules\AD7705BN.h</FilePath>
+              <FilePath>.\src\Modules\ADC.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1225,14 +1225,14 @@
           <GroupName>Modules</GroupName>
           <Files>
             <File>
-              <FileName>AD7705BN.cpp</FileName>
+              <FileName>ADC.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\src\Modules\AD7705BN.cpp</FilePath>
+              <FilePath>.\src\Modules\ADC.cpp</FilePath>
             </File>
             <File>
-              <FileName>AD7705BN.h</FileName>
+              <FileName>ADC.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\src\Modules\AD7705BN.h</FilePath>
+              <FilePath>.\src\Modules\ADC.h</FilePath>
             </File>
           </Files>
         </Group>
