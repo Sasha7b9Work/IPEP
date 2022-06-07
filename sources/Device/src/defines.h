@@ -31,6 +31,3 @@ union BitSet32
 
 
 #define ERROR_VALUE_FLOAT   1.111e29f
-
-
-#include "Log.h"
