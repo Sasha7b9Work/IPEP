@@ -56,3 +56,27 @@ void ADC::Init()
     is.Mode = GPIO_MODE_OUTPUT_PP;
     HAL_GPIO_Init(PORT_OUT, &is);
 }
+
+
+bool ADC::DataReady()
+{
+    return false;
+}
+
+
+int ADC::GetValue()
+{
+    return 0;
+}
+
+
+void ADC::Reset()
+{
+
+}
+
+
+float ADC::ValueToVoltage(int)
+{
+    return 0.0f;
+}

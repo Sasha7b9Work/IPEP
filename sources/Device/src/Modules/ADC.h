@@ -8,7 +8,7 @@ namespace ADC
 
     bool DataReady();
 
-    int GetData();
+    int GetValue();
 
     void Reset();
 
