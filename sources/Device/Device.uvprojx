@@ -468,6 +468,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\Device.h</FilePath>
             </File>
+            <File>
+              <FileName>Processor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Processor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Processor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Processor.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1093,6 +1103,16 @@
               <FileName>Device.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\Device.h</FilePath>
+            </File>
+            <File>
+              <FileName>Processor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Processor.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Processor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Processor.h</FilePath>
             </File>
           </Files>
         </Group>

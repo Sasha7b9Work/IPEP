@@ -25,6 +25,26 @@ namespace ADC
 #define PORT_OUT GPIOA
 #define PIN_OUT GPIO_PIN_4
 #define OUT PORT_OUT, PIN_OUT
+
+#define PIN_CLK_SET   HAL_GPIO_WritePin(CLK, GPIO_PIN_SET)      ; Delay()
+#define PIN_CLK_RESET HAL_GPIO_WritePin(CLK, GPIO_PIN_RESET)    ; Delay()
+
+#define PIN_IN_SET    HAL_GPIO_WritePin(IN, GPIO_PIN_SET)       ; Delay()
+#define PIN_IN_RESET  HAL_GPIO_WritePin(IN, GPIO_PIN_RESET)     ; Delay()
+
+    void WriteByte(uint8);
+
+    uint8 ReadByte();
+
+    void Delay()
+    {
+        volatile int i = 0;
+
+        while (i < 100)
+        {
+            i++;
+        }
+    }
 }
 
 
@@ -60,17 +80,39 @@ void ADC::Init()
 
 bool ADC::DataReady()
 {
-    return false;
+    return HAL_GPIO_ReadPin(READY) == GPIO_PIN_RESET;
 }
 
 
 float ADC::GetVoltage()
 {
-    return 0.0f;
+    return (float)((ReadByte() << 8) + ReadByte());
 }
 
 
 void ADC::Reset()
 {
 
+}
+
+
+void ADC::WriteByte(uint8 byte)
+{
+    for (int i = 0; i < 8; i++)
+    {
+        PIN_CLK_RESET;
+
+        if (byte & 0x80)
+        {
+            PIN_IN_SET;
+        }
+        else
+        {
+            PIN_IN_RESET;
+        }
+
+        byte <<= 1;
+
+        PIN_CLK_SET;
+    }
 }

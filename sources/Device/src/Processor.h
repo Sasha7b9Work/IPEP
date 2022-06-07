@@ -5,4 +5,8 @@
 namespace Processor
 {
     void AppendData(float, bool opened);
+
+    void Reset();
+
+    void Log();
 }

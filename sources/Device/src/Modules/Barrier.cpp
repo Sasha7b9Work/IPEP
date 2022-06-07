@@ -11,8 +11,6 @@ namespace Barrier
 
     TimeMeterMS meter;
 
-    void Open();
-
     void Close();
 }
 
@@ -28,6 +26,8 @@ void Barrier::Init()
     };
 
     HAL_GPIO_Init(GPIOB, &is);
+
+    Close();
 
     opened = false;
 }

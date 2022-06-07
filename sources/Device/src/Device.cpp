@@ -13,15 +13,17 @@ void Device::Init()
 {
     HAL::Init();
 
-    ADC::Init();
-
     Barrier::Init();
+
+    Barrier::Open();
+
+    ADC::Init();
 }
 
 
 void Device::Update()
 {
-    if (Barrier::TimeElapsed() >= 20)
+    if (Barrier::TimeElapsed() >= 500)
     {
         Barrier::Switch();
     }
@@ -30,15 +32,21 @@ void Device::Update()
     {
         float voltage = ADC::GetVoltage();
 
+        CDC::Transmit("%f V", voltage);
+
         if (voltage > 2.5f)
         {
             ADC::Reset();
 
-            CDC::Transmit("%f V, reset ADC");
+            Barrier::Open();
+
+            Processor::Reset();
         }
         else
         {
+            Processor::AppendData(voltage, Barrier::IsOpened());
 
+            Processor::Log();
         }
     }
 }

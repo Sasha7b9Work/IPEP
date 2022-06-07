@@ -2,3 +2,14 @@
 #include "defines.h"
 #include "Processor.h"
 
+
+void Processor::AppendData(float, bool)
+{
+
+}
+
+
+void Processor::Log()
+{
+
+}
