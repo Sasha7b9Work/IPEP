@@ -6,23 +6,22 @@
 
 namespace ADC
 {
-#define PORT_READY GPIOA
-#define PIN_READY GPIO_PIN_0
+#define PORT_RESET  GPIOB           // Сброс напряжения
+#define PIN_RESET   GPIO_PIN_6
+
+#define PORT_READY GPIOB
+#define PIN_READY GPIO_PIN_3
 #define READY PORT_READY, PIN_READY
 
-#define PORT_CS GPIOA
-#define PIN_CS GPIO_PIN_1
-#define CS PORT_CS, PIN_CS
-
 #define PORT_CLK GPIOA
-#define PIN_CLK GPIO_PIN_2
+#define PIN_CLK GPIO_PIN_15
 #define CLK PORT_CLK, PIN_CLK
 
 #define PORT_IN GPIOA
-#define PIN_IN GPIO_PIN_3
+#define PIN_IN GPIO_PIN_12
 #define IN PORT_IN, PIN_IN
 
-#define PORT_OUT GPIOA
+#define PORT_OUT GPIOB
 #define PIN_OUT GPIO_PIN_4
 #define OUT PORT_OUT, PIN_OUT
 
@@ -40,7 +39,7 @@ namespace ADC
     {
         volatile int i = 0;
 
-        while (i < 100)
+        while (i < 1000)
         {
             i++;
         }
@@ -60,21 +59,25 @@ void ADC::Init()
 
     HAL_GPIO_Init(PORT_READY, &is);
 
-    is.Pin = PIN_CS;
-    is.Mode = GPIO_MODE_OUTPUT_PP;
-    HAL_GPIO_Init(PORT_CS, &is);
-
     is.Pin = PIN_CLK;
     is.Mode = GPIO_MODE_OUTPUT_PP;
     HAL_GPIO_Init(PORT_CLK, &is);
 
     is.Pin = PIN_IN;
-    is.Mode = GPIO_MODE_INPUT;
+    is.Mode = GPIO_MODE_OUTPUT_PP;
     HAL_GPIO_Init(PORT_IN, &is);
 
     is.Pin = PIN_OUT;
-    is.Mode = GPIO_MODE_OUTPUT_PP;
+    is.Mode = GPIO_MODE_INPUT;
     HAL_GPIO_Init(PORT_OUT, &is);
+
+    PIN_CLK_SET;
+
+    is.Pin = PIN_RESET;
+    is.Mode = GPIO_MODE_OUTPUT_PP;
+    HAL_GPIO_Init(PORT_RESET, &is);
+
+    HAL_GPIO_WritePin(PORT_RESET, PIN_RESET, GPIO_PIN_RESET);
 }
 
 
@@ -92,7 +95,11 @@ float ADC::GetVoltage()
 
 void ADC::Reset()
 {
+    HAL_GPIO_WritePin(PORT_RESET, PIN_RESET, GPIO_PIN_SET);
 
+    HAL_Delay(1000);
+
+    HAL_GPIO_WritePin(PORT_RESET, PIN_RESET, GPIO_PIN_RESET);
 }
 
 
@@ -126,11 +133,11 @@ uint8 ADC::ReadByte()
     {
         PIN_CLK_RESET;
 
-        result >>= 1;
+        result <<= 1;
 
         if (HAL_GPIO_ReadPin(OUT) == GPIO_PIN_SET)
         {
-            result |= 0x80;
+            result |= 0x01;
         }
 
         PIN_CLK_SET;
