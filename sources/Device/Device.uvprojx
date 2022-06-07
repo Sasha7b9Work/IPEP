@@ -483,16 +483,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\Hardware\Timer.h</FilePath>
             </File>
-            <File>
-              <FileName>InterCom.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Hardware\InterCom.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>InterCom.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Hardware\InterCom.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -1118,16 +1108,6 @@
               <FileName>Timer.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\Hardware\Timer.h</FilePath>
-            </File>
-            <File>
-              <FileName>InterCom.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Hardware\InterCom.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>InterCom.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Hardware\InterCom.h</FilePath>
             </File>
           </Files>
         </Group>

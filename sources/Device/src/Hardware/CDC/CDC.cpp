@@ -2,6 +2,9 @@
 #include "Hardware/CDC/CDC.h"
 #include "Hardware/HAL/HAL.h"
 #include <usbd_desc.h>
+#include <cstdarg>
+#include <cstdio>
+#include <cstring>
 
 
 static USBD_HandleTypeDef hUsbDeviceFS;
@@ -35,6 +38,12 @@ USBD_CDC_ItfTypeDef USBD_Interface_fops_FS =
     CDC_Control_FS,
     CDC_Receive_FS
 };
+
+
+namespace CDC
+{
+    uint8 Transmit(const void *buffer, int size);
+}
 
 
 void CDC::Init()
@@ -157,4 +166,16 @@ uint8_t CDC::Transmit(const void *buffer, int size)
 void CDC::OnIRQHandler()
 {
     HAL_PCD_IRQHandler(&_handlePCD);
+}
+
+
+uint8 CDC::Transmit(char *format, ...)
+{
+    char buffer[1024];
+    std::va_list args;
+    va_start(args, format);
+    std::vsprintf(buffer, format, args);
+    va_end(args);
+
+    return Transmit((const void *)buffer, (int)std::strlen(buffer));
 }

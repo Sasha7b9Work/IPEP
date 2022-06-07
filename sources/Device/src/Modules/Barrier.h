@@ -6,9 +6,8 @@ namespace Barrier
 {
     void Init();
 
-    void Open();
-
-    void Close();
+    // Переключить из закрытого в открытое состояние или обратно
+    void Switch();
 
     bool IsOpened();
 
