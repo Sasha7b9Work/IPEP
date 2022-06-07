@@ -4,6 +4,11 @@
 #include <stm32f1xx_hal.h>
 
 
+/*
+* Полярность?
+*/
+
+
 namespace ADC
 {
 #define PORT_RESET  GPIOB           // Сброс напряжения
@@ -78,6 +83,20 @@ void ADC::Init()
     HAL_GPIO_Init(PORT_RESET, &is);
 
     HAL_GPIO_WritePin(PORT_RESET, PIN_RESET, GPIO_PIN_RESET);
+
+    WriteByte(0x10);
+    WriteByte(0x02);
+    WriteByte(0x20);
+    WriteByte(0x04);
+
+    WriteByte(0x60);
+    WriteByte(0x14);
+    WriteByte(0xF2);
+    WriteByte(0x44);
+    WriteByte(0x70);
+    WriteByte(0xAD);
+    WriteByte(0xE4);
+    WriteByte(0xBF);
 }
 
 
@@ -89,6 +108,8 @@ bool ADC::DataReady()
 
 float ADC::GetVoltage()
 {
+    WriteByte(0x38);
+
     return (float)((ReadByte() << 8) + ReadByte());
 }
 
