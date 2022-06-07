@@ -1,4 +1,4 @@
-// Sasha7b9@tut.by (c)
+// 2022/6/7 9:06:46 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Hardware/InterCom.h"
 #include "Hardware/CDC/CDC.h"

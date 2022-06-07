@@ -7,6 +7,7 @@
 #include "Hardware/InterCom.h"
 #include "Display/Display.h"
 #include "Hardware/Keyboard.h"
+#include "Hardware/AD7705BN.h"
 
 
 void Device::Init()
@@ -14,6 +15,8 @@ void Device::Init()
     HAL::Init();
 
     Keyboard::Init();
+
+    AD7705BN::Init();
 }
 
 

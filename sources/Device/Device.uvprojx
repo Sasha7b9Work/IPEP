@@ -573,6 +573,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\Hardware\Keyboard.h</FilePath>
             </File>
+            <File>
+              <FileName>AD7705BN.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Hardware\AD7705BN.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>AD7705BN.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Hardware\AD7705BN.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1288,6 +1298,16 @@
               <FileName>Keyboard.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\Hardware\Keyboard.h</FilePath>
+            </File>
+            <File>
+              <FileName>AD7705BN.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Hardware\AD7705BN.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>AD7705BN.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Hardware\AD7705BN.h</FilePath>
             </File>
           </Files>
         </Group>
