@@ -608,6 +608,16 @@
               <FileType>5</FileType>
               <FilePath>.\src\Modules\ADC.h</FilePath>
             </File>
+            <File>
+              <FileName>Barrier.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Modules\Barrier.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Barrier.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Modules\Barrier.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1233,6 +1243,16 @@
               <FileName>ADC.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\Modules\ADC.h</FilePath>
+            </File>
+            <File>
+              <FileName>Barrier.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Modules\Barrier.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>Barrier.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Modules\Barrier.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -6,7 +6,11 @@ namespace ADC
 {
     void Init();
 
-    void Write(uint8);
+    bool DataReady();
 
-    uint8 Read();
+    int GetData();
+
+    void Reset();
+
+    float ValueToVoltage(int);
 }

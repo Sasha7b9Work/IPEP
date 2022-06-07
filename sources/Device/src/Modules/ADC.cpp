@@ -56,15 +56,3 @@ void ADC::Init()
     is.Mode = GPIO_MODE_OUTPUT_PP;
     HAL_GPIO_Init(PORT_OUT, &is);
 }
-
-
-void ADC::Write(uint8)
-{
-
-}
-
-
-uint8 ADC::Read()
-{
-    return 0;
-}
