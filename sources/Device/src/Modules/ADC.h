@@ -8,9 +8,7 @@ namespace ADC
 
     bool DataReady();
 
-    int GetValue();
+    float GetVoltage();
 
     void Reset();
-
-    float ValueToVoltage(int);
 }

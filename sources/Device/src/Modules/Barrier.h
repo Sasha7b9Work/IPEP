@@ -11,4 +11,7 @@ namespace Barrier
     void Close();
 
     bool IsOpened();
+
+    // Прошло времени после последнего переключения
+    uint TimeElapsed();
 }

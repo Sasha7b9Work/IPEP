@@ -64,19 +64,13 @@ bool ADC::DataReady()
 }
 
 
-int ADC::GetValue()
+float ADC::GetVoltage()
 {
-    return 0;
+    return 0.0f;
 }
 
 
 void ADC::Reset()
 {
 
-}
-
-
-float ADC::ValueToVoltage(int)
-{
-    return 0.0f;
 }
