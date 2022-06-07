@@ -6,6 +6,7 @@
 #include "Hardware/Timer.h"
 #include "Hardware/InterCom.h"
 #include "Modules/ADC.h"
+#include "Modules/Barrier.h"
 
 
 void Device::Init()
@@ -13,17 +14,12 @@ void Device::Init()
     HAL::Init();
 
     ADC::Init();
+
+    Barrier::Init();
 }
 
 
 void Device::Update()
 {
-    static TimeMeterMS meter;
 
-    if (meter.ElapsedTime() > 1000)
-    {
-        meter.Reset();
-
-        InterCom::Send(1.0f);
-    }
 }

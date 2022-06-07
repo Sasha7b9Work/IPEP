@@ -9,4 +9,6 @@ namespace Barrier
     void Open();
 
     void Close();
+
+    bool IsOpened();
 }
