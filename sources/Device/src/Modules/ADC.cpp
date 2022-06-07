@@ -116,3 +116,25 @@ void ADC::WriteByte(uint8 byte)
         PIN_CLK_SET;
     }
 }
+
+
+uint8 ADC::ReadByte()
+{
+    uint8 result = 0;
+
+    for (int i = 0; i < 8; i++)
+    {
+        PIN_CLK_RESET;
+
+        result >>= 1;
+
+        if (HAL_GPIO_ReadPin(OUT) == GPIO_PIN_SET)
+        {
+            result |= 0x80;
+        }
+
+        PIN_CLK_SET;
+    }
+
+    return result;
+}
