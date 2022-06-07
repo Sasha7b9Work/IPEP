@@ -493,16 +493,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\Hardware\InterCom.h</FilePath>
             </File>
-            <File>
-              <FileName>AD7705BN.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Hardware\AD7705BN.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>AD7705BN.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Hardware\AD7705BN.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -602,6 +592,21 @@
               <FileName>HAL_CONF.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\Hardware\HAL\HAL_CONF.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Modules</GroupName>
+          <Files>
+            <File>
+              <FileName>AD7705BN.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Modules\AD7705BN.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>AD7705BN.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Modules\AD7705BN.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1114,16 +1119,6 @@
               <FileType>5</FileType>
               <FilePath>.\src\Hardware\InterCom.h</FilePath>
             </File>
-            <File>
-              <FileName>AD7705BN.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Hardware\AD7705BN.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>AD7705BN.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Hardware\AD7705BN.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -1223,6 +1218,21 @@
               <FileName>HAL_CONF.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\Hardware\HAL\HAL_CONF.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Modules</GroupName>
+          <Files>
+            <File>
+              <FileName>AD7705BN.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\src\Modules\AD7705BN.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>AD7705BN.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\src\Modules\AD7705BN.h</FilePath>
             </File>
           </Files>
         </Group>

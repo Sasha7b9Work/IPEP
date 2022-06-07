@@ -1,6 +1,6 @@
 // 2022/6/7 9:07:02 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
-#include "Hardware/AD7705BN.h"
+#include "Modules/AD7705BN.h"
 #include <stm32f1xx_hal.h>
 
 

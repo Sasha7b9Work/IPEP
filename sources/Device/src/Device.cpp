@@ -5,7 +5,7 @@
 #include "Hardware/CDC/CDC.h"
 #include "Hardware/Timer.h"
 #include "Hardware/InterCom.h"
-#include "Hardware/AD7705BN.h"
+#include "Modules/AD7705BN.h"
 
 
 void Device::Init()
