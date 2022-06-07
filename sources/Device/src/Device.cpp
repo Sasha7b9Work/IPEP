@@ -5,7 +5,6 @@
 #include "Hardware/CDC/CDC.h"
 #include "Hardware/Timer.h"
 #include "Hardware/InterCom.h"
-#include "Display/Display.h"
 #include "Hardware/Keyboard.h"
 #include "Hardware/AD7705BN.h"
 
@@ -25,8 +24,6 @@ void Device::Update()
     static TimeMeterMS meter;
 
     Keyboard::Update();
-
-    Display::Update();
 
     if (meter.ElapsedTime() > 1000)
     {

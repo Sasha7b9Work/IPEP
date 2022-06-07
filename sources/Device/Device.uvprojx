@@ -481,66 +481,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Display</GroupName>
-          <Files>
-            <File>
-              <FileName>Colors.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Display\Colors.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Colors.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\Colors.h</FilePath>
-            </File>
-            <File>
-              <FileName>Display.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Display\Display.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Display.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\Display.h</FilePath>
-            </File>
-            <File>
-              <FileName>Zones.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Display\Zones.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Zones.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\Zones.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Display/Font</GroupName>
-          <Files>
-            <File>
-              <FileName>Font.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Display\Font\Font.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Font.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\Font\Font.h</FilePath>
-            </File>
-            <File>
-              <FileName>font5.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\Font\font5.inc</FilePath>
-            </File>
-            <File>
-              <FileName>font8.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\Font\font8.inc</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>Hardware</GroupName>
           <Files>
             <File>
@@ -702,31 +642,6 @@
               <FileName>Math.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\Utils\Math.cpp</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Utils/Text</GroupName>
-          <Files>
-            <File>
-              <FileName>String.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Utils\Text\String.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>String.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Utils\Text\String.h</FilePath>
-            </File>
-            <File>
-              <FileName>Text.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Utils\Text\Text.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Text.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Utils\Text\Text.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -1207,66 +1122,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Display</GroupName>
-          <Files>
-            <File>
-              <FileName>Colors.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Display\Colors.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Colors.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\Colors.h</FilePath>
-            </File>
-            <File>
-              <FileName>Display.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Display\Display.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Display.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\Display.h</FilePath>
-            </File>
-            <File>
-              <FileName>Zones.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Display\Zones.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Zones.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\Zones.h</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Display/Font</GroupName>
-          <Files>
-            <File>
-              <FileName>Font.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Display\Font\Font.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Font.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\Font\Font.h</FilePath>
-            </File>
-            <File>
-              <FileName>font5.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\Font\font5.inc</FilePath>
-            </File>
-            <File>
-              <FileName>font8.inc</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Display\Font\font8.inc</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>Hardware</GroupName>
           <Files>
             <File>
@@ -1428,31 +1283,6 @@
               <FileName>Math.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\Utils\Math.cpp</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Utils/Text</GroupName>
-          <Files>
-            <File>
-              <FileName>String.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Utils\Text\String.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>String.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Utils\Text\String.h</FilePath>
-            </File>
-            <File>
-              <FileName>Text.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Utils\Text\Text.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Text.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Utils\Text\Text.h</FilePath>
             </File>
           </Files>
         </Group>

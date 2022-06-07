@@ -2,11 +2,10 @@
 #include "defines.h"
 #include "Hardware/InterCom.h"
 #include "Hardware/CDC/CDC.h"
-#include "Display/Display.h"
-#include "Utils/Text/String.h"
 #include "Utils/Buffer.h"
 #include "Utils/Math.h"
 #include <cstdio>
+#include <cstring>
 
 
 #ifdef GUI
