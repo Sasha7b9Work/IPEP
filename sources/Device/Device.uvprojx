@@ -494,16 +494,6 @@
               <FilePath>.\src\Hardware\InterCom.h</FilePath>
             </File>
             <File>
-              <FileName>Keyboard.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Hardware\Keyboard.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Keyboard.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Hardware\Keyboard.h</FilePath>
-            </File>
-            <File>
               <FileName>AD7705BN.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\src\Hardware\AD7705BN.cpp</FilePath>
@@ -1123,16 +1113,6 @@
               <FileName>InterCom.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\src\Hardware\InterCom.h</FilePath>
-            </File>
-            <File>
-              <FileName>Keyboard.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\src\Hardware\Keyboard.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>Keyboard.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\Hardware\Keyboard.h</FilePath>
             </File>
             <File>
               <FileName>AD7705BN.cpp</FileName>

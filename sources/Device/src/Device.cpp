@@ -5,15 +5,12 @@
 #include "Hardware/CDC/CDC.h"
 #include "Hardware/Timer.h"
 #include "Hardware/InterCom.h"
-#include "Hardware/Keyboard.h"
 #include "Hardware/AD7705BN.h"
 
 
 void Device::Init()
 {
     HAL::Init();
-
-    Keyboard::Init();
 
     AD7705BN::Init();
 }
@@ -22,8 +19,6 @@ void Device::Init()
 void Device::Update()
 {
     static TimeMeterMS meter;
-
-    Keyboard::Update();
 
     if (meter.ElapsedTime() > 1000)
     {
