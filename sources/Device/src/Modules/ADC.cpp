@@ -14,19 +14,19 @@ namespace ADC
 #define PORT_RESET  GPIOB           // Сброс напряжения
 #define PIN_RESET   GPIO_PIN_6
 
-#define PORT_READY GPIOB
+#define PORT_READY GPIOB            // АЦП готовность данных
 #define PIN_READY GPIO_PIN_3
 #define READY PORT_READY, PIN_READY
 
-#define PORT_CLK GPIOA
+#define PORT_CLK GPIOA              // АЦП такты
 #define PIN_CLK GPIO_PIN_15
 #define CLK PORT_CLK, PIN_CLK
 
-#define PORT_IN GPIOA
+#define PORT_IN GPIOA               // АЦП вход. Сюда записываем данные
 #define PIN_IN GPIO_PIN_12
 #define IN PORT_IN, PIN_IN
 
-#define PORT_OUT GPIOB
+#define PORT_OUT GPIOB              // АЦП выход. Отсюда читаем данные
 #define PIN_OUT GPIO_PIN_4
 #define OUT PORT_OUT, PIN_OUT
 

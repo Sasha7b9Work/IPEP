@@ -34,6 +34,10 @@ void Device::Update()
 
         CDC::Transmit("%f V", voltage);
 
+        Processor::AppendData(voltage, Barrier::IsOpened());
+
+        Processor::Log();
+
         if (voltage > 2.5f)
         {
             ADC::Reset();
@@ -41,12 +45,6 @@ void Device::Update()
             Barrier::Open();
 
             Processor::Reset();
-        }
-        else
-        {
-            Processor::AppendData(voltage, Barrier::IsOpened());
-
-            Processor::Log();
         }
     }
 }
