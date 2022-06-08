@@ -1,6 +1,7 @@
 .\objects-debug\adc.o: src\Modules\ADC.cpp
 .\objects-debug\adc.o: .\src\defines.h
 .\objects-debug\adc.o: .\src\Modules/ADC.h
+.\objects-debug\adc.o: .\src\Hardware/Timer.h
 .\objects-debug\adc.o: ..\common\STM32Cube_F1\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h
 .\objects-debug\adc.o: .\src\Hardware\HAL\HAL_CONF.h
 .\objects-debug\adc.o: ..\common\STM32Cube_F1\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h

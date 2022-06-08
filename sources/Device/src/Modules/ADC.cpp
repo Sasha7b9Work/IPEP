@@ -1,6 +1,7 @@
 // 2022/6/7 9:07:02 (c) Aleksandr Shevchenko e-mail : Sasha7b9@tut.by
 #include "defines.h"
 #include "Modules/ADC.h"
+#include "Hardware/Timer.h"
 #include <stm32f1xx_hal.h>
 
 
@@ -11,8 +12,8 @@
 
 namespace ADC
 {
-#define PORT_RESET  GPIOB           // Сброс напряжения
-#define PIN_RESET   GPIO_PIN_6
+//#define PORT_RESET  GPIOB           // Сброс напряжения
+//#define PIN_RESET   GPIO_PIN_6
 
 #define PORT_READY GPIOB            // АЦП готовность данных
 #define PIN_READY GPIO_PIN_3
@@ -44,7 +45,7 @@ namespace ADC
     {
         volatile int i = 0;
 
-        while (i < 1000)
+        while (i < 100)
         {
             i++;
         }
@@ -78,11 +79,11 @@ void ADC::Init()
 
     PIN_CLK_SET;
 
-    is.Pin = PIN_RESET;
-    is.Mode = GPIO_MODE_OUTPUT_PP;
-    HAL_GPIO_Init(PORT_RESET, &is);
-
-    HAL_GPIO_WritePin(PORT_RESET, PIN_RESET, GPIO_PIN_RESET);
+//    is.Pin = PIN_RESET;
+//    is.Mode = GPIO_MODE_OUTPUT_PP;
+//    HAL_GPIO_Init(PORT_RESET, &is);
+//
+//    HAL_GPIO_WritePin(PORT_RESET, PIN_RESET, GPIO_PIN_RESET);
 
     WriteByte(0x10);
     WriteByte(0x02);
@@ -97,6 +98,13 @@ void ADC::Init()
     WriteByte(0xAD);
     WriteByte(0xE4);
     WriteByte(0xBF);
+
+    while (true)
+    {
+        WriteByte(0x38);
+
+        Timer::Delay(100);
+    }
 }
 
 
@@ -116,11 +124,11 @@ float ADC::GetVoltage()
 
 void ADC::Reset()
 {
-    HAL_GPIO_WritePin(PORT_RESET, PIN_RESET, GPIO_PIN_SET);
+//    HAL_GPIO_WritePin(PORT_RESET, PIN_RESET, GPIO_PIN_SET);
 
     HAL_Delay(1000);
 
-    HAL_GPIO_WritePin(PORT_RESET, PIN_RESET, GPIO_PIN_RESET);
+//    HAL_GPIO_WritePin(PORT_RESET, PIN_RESET, GPIO_PIN_RESET);
 }
 
 

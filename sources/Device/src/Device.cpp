@@ -25,28 +25,21 @@ void Device::Update()
 {
     if (Barrier::TimeElapsed() >= 200)
     {
-        Barrier::Switch();
+//        Barrier::Switch();
     }
-
-    return;
 
     if (ADC::DataReady())
     {
         float voltage = ADC::GetVoltage();
 
-        CDC::Transmit("%f V", voltage);
+        CDC::Transmit("%f", voltage);
 
         Processor::AppendData(voltage, Barrier::IsOpened());
 
         Processor::Log();
-
-        if (voltage > 2.5f)
-        {
-            ADC::Reset();
-
-            Barrier::Open();
-
-            Processor::Reset();
-        }
+    }
+    else
+    {
+        CDC::Transmit("Not data");
     }
 }
