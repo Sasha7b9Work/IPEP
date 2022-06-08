@@ -23,10 +23,12 @@ void Device::Init()
 
 void Device::Update()
 {
-    if (Barrier::TimeElapsed() >= 500)
+    if (Barrier::TimeElapsed() >= 200)
     {
         Barrier::Switch();
     }
+
+    return;
 
     if (ADC::DataReady())
     {

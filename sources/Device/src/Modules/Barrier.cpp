@@ -27,7 +27,8 @@ void Barrier::Init()
 
     HAL_GPIO_Init(GPIOB, &is);
 
-    Close();
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_SET);
 
     opened = false;
 }
@@ -35,8 +36,9 @@ void Barrier::Init()
 
 void Barrier::Open()
 {
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_RESET);
+    Timer::Delay(60);
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_RESET);
 
     opened = true;
 
@@ -46,7 +48,8 @@ void Barrier::Open()
 
 void Barrier::Close()
 {
-    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_8, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_RESET);
+    Timer::Delay(60);
     HAL_GPIO_WritePin(GPIOB, GPIO_PIN_9, GPIO_PIN_SET);
 
     opened = false;

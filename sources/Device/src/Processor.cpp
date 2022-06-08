@@ -13,3 +13,9 @@ void Processor::Log()
 {
 
 }
+
+
+void Processor::Reset()
+{
+
+}
