@@ -30,8 +30,12 @@ void Device::Update()
 //        Barrier::Switch();
     }
 
-    if (ADC::DataReady())
+    static TimeMeterMS meter;
+
+    if (ADC::DataReady() && meter.ElapsedTime() >= 20)
     {
+        meter.Reset();
+
         float voltage = ADC::GetVoltage();
 
         CDC::Transmit("%f", voltage);
@@ -39,9 +43,5 @@ void Device::Update()
         Processor::AppendData(voltage, Barrier::IsOpened());
 
         Processor::Log();
-    }
-    else
-    {
-        CDC::Transmit("Not data");
     }
 }

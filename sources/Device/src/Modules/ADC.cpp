@@ -83,24 +83,81 @@ void ADC::Init()
 
     PIN_CLK_SET;
 
-//    is.Pin = PIN_RESET;
-//    is.Mode = GPIO_MODE_OUTPUT_PP;
-//    HAL_GPIO_Init(PORT_RESET, &is);
-//
-//    HAL_GPIO_WritePin(PORT_RESET, PIN_RESET, GPIO_PIN_RESET);
+    while (true)
+    {
+        //        WriteByte(0x10 | (1 << 3));
+        //        Delay();
+        //        uint8 byte1 = ReadByte();
+        //        byte1 = byte1;
+        //
+        //        Delay();
 
-    WriteByte(0x10);
-    WriteByte(0x02);
+        //        WriteByte(0x20 | (1 << 3));
+        //        Delay();
+        //        uint8 byte2 = ReadByte();
+        //        byte2 = byte2;
+        //
+        //        Delay();
+
+        Timer::Delay(20);
+
+        WriteByte(0x68);
+        Timer::Delay(1);
+        uint8 byte1 = ReadByte();
+        byte1 = byte1;
+        Timer::Delay(1);
+        uint8 byte2 = ReadByte();
+        byte2 = byte2;
+        Timer::Delay(1);
+        uint8 byte3 = ReadByte();
+        byte3 = byte3;
+
+        Delay();
+//        uint8 byte3 = ReadByte();
+//        byte3 = byte3;
+
+//        Timer::Delay(50);
+    }
+
+    WriteByte(0x10);        // \ ¬ыбор активного входа
+    Delay();
+    WriteByte(0x02);        // /
+    Delay();
     WriteByte(0x20);
+    Delay();
     WriteByte(0x04);
+    Delay();
 
-    PIN_IN_RESET;
+    while (true)
+    {
+//        WriteByte(0x10 | (1 << 3));
+//        Delay();
+//        uint8 byte1 = ReadByte();
+//        byte1 = byte1;
+//
+//        Delay();
 
-//    WriteByte(0x60);
+//        WriteByte(0x20 | (1 << 3));
+//        Delay();
+//        uint8 byte2 = ReadByte();
+//        byte2 = byte2;
+//
+//        Delay();
+
+        WriteByte(0x48);
+        Delay();
+        uint8 byte3 = ReadByte();
+        byte3 = byte3;
+
+        Timer::Delay(50);
+    }
+
+
+//    WriteByte(0x60);      // 24 бита в калибровочный регистр
 //    WriteByte(0x14);
 //    WriteByte(0xF2);
 //    WriteByte(0x44);
-//    WriteByte(0x70);
+//    WriteByte(0x70);      // 24 бита в регистр смещени€
 //    WriteByte(0xAD);
 //    WriteByte(0xE4);
 //    WriteByte(0xBF);
@@ -127,7 +184,9 @@ float ADC::GetVoltage()
 {
     WriteByte(0x38);
 
-    return (float)((ReadByte() << 8) + ReadByte());
+    float result = (float)((ReadByte() << 8) + ReadByte());
+
+    return result;
 }
 
 
