@@ -16,19 +16,19 @@ namespace ADC
 //#define PIN_RESET   GPIO_PIN_6
 
 #define PORT_READY GPIOB            // АЦП готовность данных
-#define PIN_READY GPIO_PIN_3
+#define PIN_READY GPIO_PIN_14
 #define READY PORT_READY, PIN_READY
 
-#define PORT_CLK GPIOA              // АЦП такты
-#define PIN_CLK GPIO_PIN_15
+#define PORT_CLK GPIOB              // АЦП такты
+#define PIN_CLK GPIO_PIN_13
 #define CLK PORT_CLK, PIN_CLK
 
-#define PORT_IN GPIOA               // АЦП вход. Сюда записываем данные
+#define PORT_IN GPIOB               // АЦП вход. Сюда записываем данные
 #define PIN_IN GPIO_PIN_12
 #define IN PORT_IN, PIN_IN
 
 #define PORT_OUT GPIOB              // АЦП выход. Отсюда читаем данные
-#define PIN_OUT GPIO_PIN_4
+#define PIN_OUT GPIO_PIN_15
 #define OUT PORT_OUT, PIN_OUT
 
 #define PIN_CLK_SET   HAL_GPIO_WritePin(CLK, GPIO_PIN_SET)      ; Delay()
@@ -77,6 +77,10 @@ void ADC::Init()
     is.Mode = GPIO_MODE_INPUT;
     HAL_GPIO_Init(PORT_OUT, &is);
 
+    is.Pin = GPIO_PIN_13;
+    is.Mode = GPIO_MODE_OUTPUT_PP;
+    HAL_GPIO_Init(GPIOC, &is);
+
     PIN_CLK_SET;
 
 //    is.Pin = PIN_RESET;
@@ -90,27 +94,32 @@ void ADC::Init()
     WriteByte(0x20);
     WriteByte(0x04);
 
-    WriteByte(0x60);
-    WriteByte(0x14);
-    WriteByte(0xF2);
-    WriteByte(0x44);
-    WriteByte(0x70);
-    WriteByte(0xAD);
-    WriteByte(0xE4);
-    WriteByte(0xBF);
+    PIN_IN_RESET;
 
-    while (true)
-    {
-        WriteByte(0x38);
-
-        Timer::Delay(100);
-    }
+//    WriteByte(0x60);
+//    WriteByte(0x14);
+//    WriteByte(0xF2);
+//    WriteByte(0x44);
+//    WriteByte(0x70);
+//    WriteByte(0xAD);
+//    WriteByte(0xE4);
+//    WriteByte(0xBF);
 }
 
 
 bool ADC::DataReady()
 {
-    return HAL_GPIO_ReadPin(READY) == GPIO_PIN_RESET;
+    bool ready = HAL_GPIO_ReadPin(READY) == GPIO_PIN_RESET;
+
+    static TimeMeterMS meter;
+
+    if (meter.ElapsedTime() > 100)
+    {
+        meter.Reset();
+        HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, ready ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    }
+
+    return ready;
 }
 
 

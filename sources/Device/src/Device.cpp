@@ -17,6 +17,8 @@ void Device::Init()
 
     Barrier::Open();
 
+    Timer::Delay(500);
+
     ADC::Init();
 }
 
